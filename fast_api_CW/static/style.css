@@ -1,0 +1,35 @@
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c5d1dd;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.alert {
+    font-size: 18px;
+    text-align: center;
+}
+
+.btn-outline-primary {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}

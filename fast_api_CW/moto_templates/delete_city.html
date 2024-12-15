@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Удаление города</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Управление трассами</a>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="text-center">Управление городом</h1>
+
+    <!-- Форма удаления записи города -->
+    <form action="/delete_city_record" method="post" class="p-4 bg-white rounded shadow-sm">
+        <h3>Удалить запись города</h3>
+        <div class="mb-3">
+            <label for="name_city_delete" class="form-label">Название города</label>
+            <input type="text" id="name_city_delete" name="name_city" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-danger w-100">Удалить запись</button>
+    </form>
+
+    <!-- Форма обновления атрибута города -->
+    <form action="/update_city_attribute" method="post" class="p-4 bg-white rounded shadow-sm mt-4">
+        <h3>Обновить атрибут города</h3>
+
+        <div class="mb-3">
+            <label for="name_city_update" class="form-label">Название города</label>
+            <input type="text" id="name_city_update" name="name_city" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="attribute_name_city" class="form-label">Атрибут для обновления</label>
+            <select id="attribute_name_city" name="attribute_name" class="form-select" required>
+                <option value="region">Регион</option>
+                <option value="population">Население</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="new_value_city" class="form-label">Новое значение</label>
+            <input type="text" id="new_value_city" name="new_value" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Обновить атрибут</button>
+    </form>
+
+    {% if message %}
+    <div class="alert alert-success mt-4">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-outline-primary">Вернуться на главную</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

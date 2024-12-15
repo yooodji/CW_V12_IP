@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  fastapi:
+    build: .
+    ports:
+      - "8091:8091"
+    container_name: application
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=coursework
+    networks:
+      - backend
+
+  postgres:
+    image: postgres:13
+    container_name: database
+    environment:
+      POSTGRES_DB: coursework
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d  # Добавлен путь к SQL-скриптам
+    ports:
+      - "5433:5432"  
+    networks:
+      - backend
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5050:80"  # Проброс порта для pgAdmin
+    networks:
+      - backend
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+    driver: bridge
