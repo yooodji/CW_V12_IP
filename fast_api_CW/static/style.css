@@ -1,35 +1,35 @@
 /* Основные стили */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /*устанавливает шрифт Arial*/
     background-color: #c5d1dd;
 }
 
-h1, h2 {
-    color: #333;
-    text-align: center;
+h1, h2 {  
+    color: #333;     /*устанавливает тёмно-серый цвет текста для заголовков <h1> и <h2>, выравнивает текст заголовков по центру*/
+    text-align: center; /*выравнивает текст заголовков по центру*/
 }
 
-.navbar-brand {
+.navbar-brand {  /*задаёт размер шрифта для элементов с классом navbar-brand и делает его жирным*/
     font-size: 24px;
     font-weight: bold;
 }
 
-.table th, .table td {
+.table th, .table td {  /*выравнивает текст по горизонтали в ячейках заголовка таблицы <th> и ячейках <td> и происходит выравнивание текста по вертикали в центре ячейки*/
     text-align: center;
     vertical-align: middle;
 }
 
-.alert {
+.alert {  /*задаёт размер шрифта для элемента с классом alert и выравнивается по центру*/
     font-size: 18px;
     text-align: center;
 }
 
-.btn-outline-primary {
+.btn-outline-primary {  /*Селектор с параметрами отображения кнопок: задаёт размер шрифта для кнопки. делает текст кнопки жирным. добавляет внутренние отступы: 10 пикселей сверху и снизу, 20 пикселей слева и справа*/
     font-size: 18px;
     font-weight: bold;
     padding: 10px 20px;
 }
 
-.mb-5 {
+.mb-5 {  /* устанавливает нижний внешний отступ равный 3 ремам( 48 пикселей). !important — переопределяет любые другие стили, задаваемые ранее для этого свойства*/
     margin-bottom: 3rem !important;
 }

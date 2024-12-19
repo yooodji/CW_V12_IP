@@ -9,12 +9,20 @@ END $$;
 -- Подключение к базе данных
 \connect coursework;
 
--- Создание таблицы cities 
+
 CREATE TABLE IF NOT EXISTS cities (
-    name_city TEXT PRIMARY KEY,
-    region TEXT,
-    population INTEGER
+    id SERIAL PRIMARY KEY,           -- Уникальный идентификатор
+    name_city TEXT NOT NULL,         -- Название города
+    region TEXT NOT NULL,            -- Регион
+    population INTEGER NOT NULL,     -- Население
+    UNIQUE (name_city, region)       -- Уникальное сочетание названия города и региона
 );
+-- -- Создание таблицы cities 
+-- CREATE TABLE IF NOT EXISTS cities (
+--     name_city TEXT PRIMARY KEY,
+--     region TEXT,
+--     population INTEGER
+-- );
 
 -- Создание таблицы highways
 CREATE TABLE IF NOT EXISTS highways (
